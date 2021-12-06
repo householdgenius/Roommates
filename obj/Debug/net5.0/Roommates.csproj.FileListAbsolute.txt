@@ -1,0 +1,16 @@
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\Roommates.exe
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\Roommates.deps.json
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\Roommates.runtimeconfig.json
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\Roommates.runtimeconfig.dev.json
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\Roommates.dll
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\ref\Roommates.dll
+C:\Users\emily\source\repos\Roommates\Roommates\bin\Debug\net5.0\Roommates.pdb
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.csproj.AssemblyReference.cache
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.AssemblyInfoInputs.cache
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.AssemblyInfo.cs
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.csproj.CoreCompileInputs.cache
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.dll
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\ref\Roommates.dll
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.pdb
+C:\Users\emily\source\repos\Roommates\Roommates\obj\Debug\net5.0\Roommates.genruntimeconfig.cache
