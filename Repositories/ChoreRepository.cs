@@ -130,7 +130,102 @@ namespace Roommates.Repositories
             // when this method is finished we can look in the database and see the new chore.
         }
 
-      
+        public List<Chore> GetUnassignedChores()
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT c.Id as 'Chore Id', c.Name as 'Chore Name', rc.RoommateId FROM Chore as c LEFT JOIN RoommateChore as rc ON c.id=rc.ChoreId WHERE rc.RoommateId is NULL";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        List<Chore> roommateChores = new List<Chore>();
+                        while (reader.Read())
+                        {
+                            int idColumnPosition = reader.GetOrdinal("Chore Id");
+                            int idValue = reader.GetInt32(idColumnPosition);
+                            int nameColumnPosition = reader.GetOrdinal("Chore Name");
+                            string nameValue = reader.GetString(nameColumnPosition);
+                           
+
+                            Chore roommateChore= new Chore
+                            {
+                                Id = idValue,
+                                Name = nameValue,
+                                
+                            };
+
+                            roommateChores.Add(roommateChore);
+
+                        }
+                        return roommateChores;
+                    }
+
+                }
+            }
+           
+        }
+
+        public void AssignChore(int roommateId, int choreId)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"INSERT INTO RoommateChore (RoommateId, ChoreId) 
+                                         OUTPUT INSERTED.Id 
+                                         VALUES (@RoommateId,@ChoreId)";
+
+                    cmd.Parameters.AddWithValue("@RoommateId",roommateId);
+                    cmd.Parameters.AddWithValue("@ChoreId", choreId);
+                    int id = (int)cmd.ExecuteScalar();
+                   
+
+                }
+            }
+
+        }
+
+        /// <summary>
+        ///  Updates the Chore
+        /// </summary>
+        public void Update(Chore chore)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"UPDATE Chore
+                                    SET Name = @name,
+                                    WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("@name", chore.Name);
+                    cmd.Parameters.AddWithValue("@id", chore.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        /// <summary>
+        ///  Delete the room with the given id
+        /// </summary>
+        public void Delete(int id)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    // What do you think this code will do if there is a roommate in the chore we're deleting???
+                    cmd.CommandText = "DELETE FROM Chore WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
     }
 }
